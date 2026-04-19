@@ -165,6 +165,9 @@ button { font-family: var(--font); }
   align-items: center;
 }
 
+/* About overrides the flex display with grid */
+.about-section { display: grid; }
+
 .section-inner {
   width: 100%;
   max-width: 860px;
@@ -328,25 +331,82 @@ button { font-family: var(--font); }
 }
 
 /* ═══════════════════════════════════════════
-   ABOUT
+   ABOUT — Steve Jobs editorial style
 ═══════════════════════════════════════════ */
 .about-section {
   background: var(--g900);
   border-top: 1px solid var(--g700);
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  min-height: 100vh;
+  align-items: stretch;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 72px;
-  align-items: start;
+/* Left column — full-bleed photo */
+.about-photo-col {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.about-photo-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(1) contrast(1.18) brightness(0.88);
+  transition: transform 8s ease;
+}
+
+.about-section:hover .about-photo {
+  transform: scale(1.03);
+}
+
+/* dramatic bottom fade into black */
+.photo-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 60%,
+    var(--g900) 100%
+  ),
+  linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0,0,0,0.6) 100%
+  );
+  pointer-events: none;
+}
+
+/* Right column — text */
+.about-text-col {
+  padding: 100px 72px 100px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-headline {
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: var(--white);
+  margin-bottom: 40px;
 }
 
 .about-text {
   font-size: 15px;
   line-height: 1.75;
   color: var(--g200);
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .about-text em {
@@ -379,6 +439,23 @@ button { font-family: var(--font); }
   flex-shrink: 0;
   position: relative;
   top: -1px;
+}
+
+/* Responsive — stack on mobile */
+@media (max-width: 960px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 480px auto;
+  }
+  .about-photo-col { min-height: unset; }
+  .photo-vignette {
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      var(--g900) 100%
+    );
+  }
+  .about-text-col { padding: 60px 32px 80px; }
 }
 
 /* ═══════════════════════════════════════════
