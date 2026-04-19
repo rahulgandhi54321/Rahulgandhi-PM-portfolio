@@ -48,21 +48,62 @@
     <!-- ── HERO ── -->
     <section id="hero" class="section hero-section">
       <canvas id="particles"></canvas>
-      <div class="hero-content">
-        <p class="hero-tag">AI Product Manager · Bangalore, India</p>
-        <h1 class="hero-name">
-          <span class="name-line">Rahul</span>
-          <span class="name-line">Gandhi.</span>
-        </h1>
-        <p class="hero-tagline">I build AI products<br>that move markets.</p>
-        <p class="hero-sub">Sitting at the intersection of customer obsession, business impact, and technological innovation — owning products from 0 to scale.</p>
-        <div class="hero-metrics">
-          <div class="metric"><span class="metric-value">$42M+</span><span class="metric-label">GMV Driven</span></div>
-          <div class="metric"><span class="metric-value">$1.8M</span><span class="metric-label">ARR Contributed</span></div>
-          <div class="metric"><span class="metric-value">4 Yrs</span><span class="metric-label">AI PM Experience</span></div>
-        </div>
-        <a href="#contact" class="hero-cta">Let's Build Together →</a>
+
+      <!-- Giant ghost name — sits behind everything -->
+      <div class="hero-ghost-name" aria-hidden="true">
+        <span>RAHUL</span>
+        <span>GANDHI</span>
       </div>
+
+      <!-- PM BRAIN — Portrait + Orbital System -->
+      <div class="orbital-system" id="orbitalSystem">
+
+        <!-- Visual orbit rings -->
+        <div class="orbit-ring orbit-ring-1"></div>
+        <div class="orbit-ring orbit-ring-2"></div>
+
+        <!-- Portrait -->
+        <div class="portrait-center">
+          <div class="portrait-glow"></div>
+          <img src="rahul-nobg.png" alt="Rahul Gandhi" class="hero-portrait" id="heroPortrait" />
+        </div>
+
+        <!-- Inner orbit nodes (r=200, clockwise) -->
+        <div class="orb-node" data-r="200" data-a="270" data-s="14">
+          <span class="orb-val">$42M+</span><span class="orb-lbl">GMV Driven</span>
+        </div>
+        <div class="orb-node" data-r="200" data-a="30" data-s="14">
+          <span class="orb-val">$1.8M</span><span class="orb-lbl">ARR</span>
+        </div>
+        <div class="orb-node" data-r="200" data-a="150" data-s="14">
+          <span class="orb-val">4 Yrs</span><span class="orb-lbl">AI PM</span>
+        </div>
+
+        <!-- Outer orbit nodes (r=310, counter-clockwise) -->
+        <div class="orb-node" data-r="310" data-a="310" data-s="-9">
+          <span class="orb-val">LLM</span><span class="orb-lbl">Analytics</span>
+        </div>
+        <div class="orb-node" data-r="310" data-a="70" data-s="-9">
+          <span class="orb-val">520+</span><span class="orb-lbl">Brands</span>
+        </div>
+        <div class="orb-node" data-r="310" data-a="190" data-s="-9">
+          <span class="orb-val">$10M</span><span class="orb-lbl">Revenue Q2</span>
+        </div>
+        <div class="orb-node" data-r="310" data-a="250" data-s="-9">
+          <span class="orb-val">120%+</span><span class="orb-lbl">NRR</span>
+        </div>
+      </div>
+
+      <!-- Bottom text block -->
+      <div class="hero-bottom">
+        <p class="hero-eyebrow">AI PRODUCT MANAGER · BANGALORE, INDIA</p>
+        <p class="hero-tagline">I build AI products that move markets.</p>
+        <div class="hero-bottom-row">
+          <a href="#contact" class="hero-cta">Let's Build Together →</a>
+          <a href="#about" class="hero-learn">Explore my thinking ↓</a>
+        </div>
+      </div>
+
       <div class="scroll-indicator">
         <div class="scroll-line"></div>
         <span>Scroll</span>
