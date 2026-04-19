@@ -42,7 +42,7 @@
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${this.a})`;
+      ctx.fillStyle = `rgba(79,172,254,${this.a})`;
       ctx.fill();
     }
   }
@@ -59,7 +59,7 @@
         const d = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
         if (d < 90) {
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(255,255,255,${0.06 * (1 - d / 90)})`;
+          ctx.strokeStyle = `rgba(79,172,254,${0.08 * (1 - d / 90)})`;
           ctx.lineWidth = 0.5;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
@@ -77,10 +77,12 @@
   }
 
   const heroSection = document.getElementById('hero');
-  new IntersectionObserver(([e]) => {
-    if (e.isIntersecting) { if (!raf) animate(); }
-    else { cancelAnimationFrame(raf); raf = null; }
-  }, { threshold: 0 }).observe(heroSection);
+  if (heroSection) {
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { if (!raf) animate(); }
+      else { cancelAnimationFrame(raf); raf = null; }
+    }, { threshold: 0 }).observe(heroSection);
+  }
 
   window.addEventListener('mousemove', e => {
     const rect = canvas.getBoundingClientRect();
@@ -95,135 +97,79 @@
 })();
 
 /* ═══════════════════════════════════════════
-   PM BRAIN — ORBITAL ANIMATION SYSTEM
+   TOP NAV — SCROLL VISIBILITY + SECTION TRACKING
 ═══════════════════════════════════════════ */
 (function () {
-  const system = document.getElementById('orbitalSystem');
-  if (!system) return;
+  const nav       = document.getElementById('topNav');
+  const navLabel  = document.getElementById('navLabel');
+  const navLinks  = document.querySelectorAll('.nav-links a');
+  if (!nav) return;
 
-  const nodes = Array.from(system.querySelectorAll('.orb-node'));
-  let paused = false;
-  let raf;
+  // Show nav after 80px scroll
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('visible', window.scrollY > 80);
+  }, { passive: true });
 
-  // Parse node config from data attributes
-  const nodeData = nodes.map(el => ({
-    el,
-    r: parseFloat(el.dataset.r),
-    angle: parseFloat(el.dataset.a) * Math.PI / 180,
-    speed: parseFloat(el.dataset.s) * Math.PI / 180 / 60, // deg/s → rad/frame @60fps
-  }));
+  // Section tracking
+  const sections = Array.from(document.querySelectorAll('section[id]'));
 
-  const BASE_SIZE = 640; // design reference size in px
+  const sectionMeta = {};
+  sections.forEach(s => {
+    sectionMeta[s.id] = s.dataset.navLabel || s.id.charAt(0).toUpperCase() + s.id.slice(1);
+  });
 
-  function getScale() {
-    return system.offsetWidth / BASE_SIZE;
-  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const id = e.target.id;
+      const label = sectionMeta[id] || id;
 
-  function getCenter() {
-    return { x: system.offsetWidth / 2, y: system.offsetHeight / 2 };
-  }
+      if (navLabel) navLabel.textContent = label;
 
-  function positionNode(nd) {
-    const { x: cx, y: cy } = getCenter();
-    const scale = getScale();
-    const x = cx + Math.cos(nd.angle) * nd.r * scale;
-    const y = cy + Math.sin(nd.angle) * nd.r * scale;
-    const hw = nd.el.offsetWidth  / 2;
-    const hh = nd.el.offsetHeight / 2;
-    nd.el.style.left = `${x - hw}px`;
-    nd.el.style.top  = `${y - hh}px`;
-  }
-
-  function tick() {
-    if (!paused) {
-      nodeData.forEach(nd => {
-        nd.angle += nd.speed;
-        positionNode(nd);
+      navLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === `#${id}`);
       });
-    }
-    raf = requestAnimationFrame(tick);
-  }
-
-  // Fade in nodes staggered after portrait loads
-  function revealNodes() {
-    nodeData.forEach((nd, i) => {
-      // Initial position before reveal
-      positionNode(nd);
-      setTimeout(() => nd.el.classList.add('visible'), 800 + i * 150);
     });
-  }
+  }, { threshold: 0.3 });
 
-  const portrait = document.getElementById('heroPortrait');
-  if (portrait && portrait.complete) {
-    revealNodes();
-  } else if (portrait) {
-    portrait.addEventListener('load', revealNodes);
-  } else {
-    revealNodes();
-  }
-
-  tick();
-
-  // Pause orbit on hover, resume on leave
-  nodes.forEach(el => {
-    el.addEventListener('mouseenter', () => { paused = true; });
-    el.addEventListener('mouseleave', () => { paused = false; });
-  });
-
-  // Pause when hero scrolls out
-  new IntersectionObserver(([e]) => {
-    if (!e.isIntersecting) { paused = true; }
-    else                   { paused = false; }
-  }, { threshold: 0 }).observe(document.getElementById('hero'));
-
-  window.addEventListener('resize', () => {
-    nodeData.forEach(nd => positionNode(nd));
-  });
+  sections.forEach(s => obs.observe(s));
 })();
 
 /* ═══════════════════════════════════════════
-   SIDE NAVIGATION
+   MOBILE NAV TOGGLE
 ═══════════════════════════════════════════ */
 (function () {
-  const nav    = document.getElementById('sideNav');
-  const toggle = document.getElementById('menuToggle');
-  const links  = document.querySelectorAll('.nav-link');
+  const hamburger  = document.getElementById('navHamburger');
+  const mobileNav  = document.getElementById('mobileNav');
+  if (!hamburger || !mobileNav) return;
 
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.classList.toggle('open', open);
+  hamburger.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
   });
 
-  links.forEach(l => l.addEventListener('click', () => {
-    nav.classList.remove('open');
-    toggle.classList.remove('open');
-  }));
-
-  const sections = document.querySelectorAll('.section');
-  new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        links.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
-      }
-    });
-  }, { threshold: 0.35 }).observe(document.getElementById('hero'));
-
-  sections.forEach(s => {
-    new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting)
-          links.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
-      });
-    }, { threshold: 0.35 }).observe(s);
+  document.addEventListener('click', e => {
+    if (mobileNav.classList.contains('open') && !mobileNav.contains(e.target) && e.target !== hamburger) {
+      closeMobileNav();
+    }
   });
 })();
+
+function closeMobileNav() {
+  const mobileNav = document.getElementById('mobileNav');
+  const hamburger = document.getElementById('navHamburger');
+  if (mobileNav) mobileNav.classList.remove('open');
+  if (hamburger) hamburger.classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 /* ═══════════════════════════════════════════
    SCROLL REVEAL
 ═══════════════════════════════════════════ */
 (function () {
   const targets = document.querySelectorAll(
-    '.reveal, .timeline-item, .project-card, .skill-category, .about-text-col, .edu-row'
+    '.reveal, .pillar, .exp-card, .project-card, .skill-category, .impact-number, .framework-step'
   );
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -241,52 +187,62 @@
 })();
 
 /* ═══════════════════════════════════════════
-   TIMELINE ACCORDION
+   COUNTER ANIMATION
 ═══════════════════════════════════════════ */
 (function () {
-  const items = document.querySelectorAll('.timeline-item');
-  items.forEach(item => {
-    item.querySelector('.timeline-header').addEventListener('click', () => {
-      const wasActive = item.classList.contains('active');
-      items.forEach(i => i.classList.remove('active'));
-      if (!wasActive) item.classList.add('active');
+  const counters = document.querySelectorAll('[data-count]');
+  if (!counters.length) return;
+
+  function animateCount(el) {
+    const target = parseFloat(el.dataset.count);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const start = performance.now();
+
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = target * eased;
+      el.textContent = prefix + (Number.isInteger(target) ? Math.round(value) : value.toFixed(1)) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCount(e.target);
+        obs.unobserve(e.target);
+      }
     });
-  });
+  }, { threshold: 0.5 });
+
+  counters.forEach(el => obs.observe(el));
 })();
 
 /* ═══════════════════════════════════════════
    CASE STUDY MODAL
 ═══════════════════════════════════════════ */
-function openCaseStudy() {
-  document.getElementById('caseStudyModal').classList.add('active');
+function openModal() {
+  const modal = document.getElementById('modal');
+  if (!modal) return;
+  modal.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
 
-function closeCaseStudy() {
-  document.getElementById('caseStudyModal').classList.remove('active');
+function closeModal() {
+  const modal = document.getElementById('modal');
+  if (!modal) return;
+  modal.classList.remove('active');
   document.body.style.overflow = '';
 }
 
-document.getElementById('caseStudyModal').addEventListener('click', function (e) {
-  if (e.target === this) closeCaseStudy();
-});
+function handleModalClick(e) {
+  if (e.target === e.currentTarget) closeModal();
+}
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeCaseStudy();
+  if (e.key === 'Escape') closeModal();
 });
-
-/* ═══════════════════════════════════════════
-   NUMBER COUNTER ANIMATION (Experience metrics)
-═══════════════════════════════════════════ */
-(function () {
-  const metricEls = document.querySelectorAll('.t-metric');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('metric-pop');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 1 });
-  metricEls.forEach(el => obs.observe(el));
-})();
