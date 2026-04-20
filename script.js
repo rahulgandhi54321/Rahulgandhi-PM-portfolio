@@ -44,12 +44,14 @@
   class Particle {
     constructor() { this.init(); }
     init() {
-      this.x  = Math.random() * canvas.width;
-      this.y  = Math.random() * canvas.height;
-      this.vx = (Math.random() - 0.5) * 0.28;
-      this.vy = (Math.random() - 0.5) * 0.28;
-      this.r  = Math.random() * 1.1 + 0.3;
-      this.a  = Math.random() * 0.35 + 0.05;
+      this.x    = Math.random() * canvas.width;
+      this.y    = Math.random() * canvas.height;
+      this.vx   = (Math.random() - 0.5) * 0.32;
+      this.vy   = (Math.random() - 0.5) * 0.32;
+      this.r    = Math.random() * 1.6 + 0.5;
+      this.base = Math.random() * 0.55 + 0.2;
+      this.a    = this.base;
+      this.glow = 0;
     }
     update() {
       this.x += this.vx;
@@ -58,25 +60,35 @@
       if (this.y < 0 || this.y > canvas.height)  this.vy *= -1;
       if (mouse.x !== null) {
         const dx = this.x - mouse.x, dy = this.y - mouse.y;
-        const d = Math.hypot(dx, dy);
-        if (d < 100) {
-          const f = (100 - d) / 100;
-          this.x += (dx / d) * f * 1.4;
-          this.y += (dy / d) * f * 1.4;
+        const d  = Math.hypot(dx, dy);
+        if (d < 130 && d > 0) {
+          const f = (130 - d) / 130;
+          this.x += (dx / d) * f * 2.2;
+          this.y += (dy / d) * f * 2.2;
+          this.glow = Math.min(this.glow + 0.12, f);
+        } else {
+          this.glow = Math.max(this.glow - 0.04, 0);
         }
       }
+      this.a = this.base + this.glow * 0.5;
     }
     draw() {
+      if (this.glow > 0.05) {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r * (3 + this.glow * 4), 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(200,151,58,${this.glow * 0.12})`;
+        ctx.fill();
+      }
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(200,151,58,${this.a})`;
+      ctx.arc(this.x, this.y, this.r + this.glow * 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200,151,58,${Math.min(this.a, 0.9)})`;
       ctx.fill();
     }
   }
 
   function buildParticles() {
     particles = [];
-    const n = Math.min(Math.floor((canvas.width * canvas.height) / 10000), 130);
+    const n = Math.min(Math.floor((canvas.width * canvas.height) / 7500), 160);
     for (let i = 0; i < n; i++) particles.push(new Particle());
   }
 
@@ -84,10 +96,12 @@
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const d = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
-        if (d < 85) {
+        if (d < 100) {
+          const boost = (particles[i].glow + particles[j].glow) * 0.5;
+          const alpha = (0.18 + boost * 0.3) * (1 - d / 100);
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(200,151,58,${0.07 * (1 - d / 85)})`;
-          ctx.lineWidth = 0.5;
+          ctx.strokeStyle = `rgba(200,151,58,${alpha})`;
+          ctx.lineWidth   = 0.6 + boost;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           ctx.stroke();

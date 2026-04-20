@@ -7,7 +7,7 @@
   <meta name="description" content="AI Product Manager · E-Commerce · AgriTech · SaaS · AI · $42M+ GMV · $1.8M ARR"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="styles.css?v=2"/>
 </head>
 <body>
 
@@ -45,36 +45,54 @@
     <canvas id="particles"></canvas>
     <div class="hero-glow-1"></div>
     <div class="hero-glow-2"></div>
+    <div class="hero-glow-c"></div>
     <div class="hero-scanline"></div>
 
-    <div class="hero-inner">
+    <!-- Floating metric chips — always visible, always moving -->
+    <div class="hero-chip hc-1">
+      <span class="hc-val">$42M+</span>
+      <span class="hc-lbl">GMV Driven</span>
+    </div>
+    <div class="hero-chip hc-2">
+      <span class="hc-val">$1.8M</span>
+      <span class="hc-lbl">ARR Built</span>
+    </div>
+    <div class="hero-chip hc-3">
+      <span class="hc-val">120%+</span>
+      <span class="hc-lbl">NRR</span>
+    </div>
+    <div class="hero-chip hc-4">
+      <span class="hc-val">520+</span>
+      <span class="hc-lbl">Brands</span>
+    </div>
 
-      <!-- Name — the hero -->
-      <div class="hero-name-block">
-        <h1 class="hero-name">
-          <span class="hn-row"><span class="hl-mask"><span>Rahul</span></span></span>
-          <span class="hn-row"><span class="hl-mask"><span>Gandhi</span></span></span>
-        </h1>
-        <div class="hero-designation">
-          <span class="hd-line"></span>
-          <span class="hd-text">AI Product Manager</span>
-          <span class="hd-sep">·</span>
-          <span class="hd-loc">Bangalore, India</span>
-          <span class="hd-line"></span>
-        </div>
+    <div class="hero-inner">
+      <!-- Name — full amber gradient, blur-in cinematic reveal -->
+      <h1 class="hero-name">
+        <span class="hn-word">Rahul</span>
+        <span class="hn-word hn-amber">Gandhi</span>
+      </h1>
+
+      <!-- Designation -->
+      <div class="hero-designation">
+        <span class="hd-line"></span>
+        <span class="hd-text">AI Product Manager</span>
+        <span class="hd-dot">·</span>
+        <span class="hd-loc">Bangalore, India</span>
+        <span class="hd-line"></span>
       </div>
 
-      <!-- Tagline -->
-      <p class="hero-tagline">
-        <span class="hl-mask ht-mask"><span>Product is craft. AI is my material.</span></span>
+      <!-- Hook — the line they liked -->
+      <p class="hero-hook">
+        Product is craft.<br>
+        <span class="hook-amber">AI is my material.</span>
       </p>
 
       <p class="hero-sub">
-        Building at the intersection of customer obsession, data, and AI — across
-        <span class="inline-accent">E-Commerce</span>,
+        Building at the intersection of customer obsession, data, and AI —
+        across <span class="inline-accent">E-Commerce</span>,
         <span class="inline-accent">AgriTech</span>, and
         <span class="inline-accent">SaaS</span>.
-        Not features. Outcomes.
       </p>
 
       <div class="hero-actions">
