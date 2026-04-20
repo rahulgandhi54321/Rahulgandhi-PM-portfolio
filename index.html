@@ -7,7 +7,7 @@
   <meta name="description" content="AI Product Manager · E-Commerce · AgriTech · SaaS · AI · $100M+ GMV · $20M ARR · 1000+ D2C Brands"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css?v=2"/>
+  <link rel="stylesheet" href="styles.css?v=3"/>
 </head>
 <body>
 
@@ -24,6 +24,7 @@
       <li><a href="#why"      data-label="Why">Why</a></li>
       <li><a href="#what"     data-label="What">What</a></li>
       <li><a href="#how"      data-label="How">How</a></li>
+      <li><a href="#stack"    data-label="Stack">Stack</a></li>
       <li><a href="#projects" data-label="Work">Work</a></li>
     </ul>
     <a href="#contact" class="nav-hire">Let's Talk</a>
@@ -36,6 +37,7 @@
     <a href="#why"      onclick="closeMobileNav()">Why</a>
     <a href="#what"     onclick="closeMobileNav()">What</a>
     <a href="#how"      onclick="closeMobileNav()">How</a>
+    <a href="#stack"    onclick="closeMobileNav()">Stack</a>
     <a href="#projects" onclick="closeMobileNav()">Work</a>
     <a href="#contact"  onclick="closeMobileNav()" class="mobile-hire">Let's Talk →</a>
   </div>
@@ -67,10 +69,11 @@
     </div>
 
     <div class="hero-inner">
-      <!-- Name — full amber gradient, blur-in cinematic reveal -->
-      <h1 class="hero-name">
-        <span class="hn-word">Rahul</span>
-        <span class="hn-word hn-amber">Gandhi</span>
+      <!-- Name — typewriter reveal -->
+      <h1 class="hero-name" id="heroName">
+        <span class="hn-line1" id="heroLine1"></span>
+        <span class="hn-line2 hn-amber" id="heroLine2"></span>
+        <span class="hn-cursor" id="heroCursor">|</span>
       </h1>
 
       <!-- Designation -->
@@ -78,7 +81,7 @@
         <span class="hd-line"></span>
         <span class="hd-text">AI Product Manager</span>
         <span class="hd-dot">·</span>
-        <span class="hd-loc">Bangalore, India</span>
+        <span class="hd-loc">📍 <span class="loc-amber">Bangalore</span>, India</span>
         <span class="hd-line"></span>
       </div>
 
@@ -172,22 +175,22 @@
         <div class="ns-item">
           <span class="ns-num" data-count="100" data-prefix="$" data-suffix="M+">$0M+</span>
           <span class="ns-label">GMV Driven</span>
-          <span class="ns-context">D2C brands selling via WhatsApp & Instagram commerce</span>
+          <span class="ns-context">Career total — D2C commerce across India & global markets</span>
         </div>
         <div class="ns-item">
           <span class="ns-num" data-count="20" data-prefix="$" data-suffix="M">$0M</span>
           <span class="ns-label">ARR Built</span>
-          <span class="ns-context">From 0→1 at Invictus data.ai as Founding PM</span>
+          <span class="ns-context">Career total across SaaS, E-Commerce, and AgriTech</span>
         </div>
         <div class="ns-item">
           <span class="ns-num" data-count="1000" data-suffix="+">0+</span>
           <span class="ns-label">D2C Brands</span>
-          <span class="ns-context">Brands across India powered by products I built</span>
+          <span class="ns-context">Indian D2C brands powered by products I shipped</span>
         </div>
         <div class="ns-item">
           <span class="ns-num" data-count="50" data-suffix="+">0+</span>
           <span class="ns-label">Products Built</span>
-          <span class="ns-context">Full product suite — from 0→1 to scaled features</span>
+          <span class="ns-context">Full product suite — 0→1 builds to scaled platform features</span>
         </div>
         <div class="ns-item">
           <span class="ns-num" data-count="30" data-suffix="+">0+</span>
@@ -196,8 +199,8 @@
         </div>
         <div class="ns-item">
           <span class="ns-num" data-count="20" data-suffix="+">0+</span>
-          <span class="ns-label">US E-Commerce Clients</span>
-          <span class="ns-context">Global reach across India, Brazil, and the US market</span>
+          <span class="ns-label">US Clients</span>
+          <span class="ns-context">E-commerce brands across India, Brazil &amp; the United States</span>
         </div>
       </div>
 
@@ -260,11 +263,11 @@
           <div class="exp-top">
             <div class="exp-company-block">
               <h3 class="exp-company">BusinessOnBot</h3>
-              <p class="exp-tagline">AI omnichannel conversational commerce · Head of Product · India</p>
+              <p class="exp-tagline">AI omnichannel conversational commerce · D2C WhatsApp & Instagram</p>
             </div>
             <div class="exp-right-meta">
               <span class="exp-date">Jun 2022 — Jun 2024</span>
-              <span class="exp-badge">Head of Product</span>
+              <span class="exp-badge">PM · Full-time</span>
             </div>
           </div>
           <div class="exp-chips">
@@ -422,12 +425,162 @@
     </div>
   </section>
 
+  <!-- ═══ STACK — Integration Ecosystem ═══ -->
+  <section id="stack" class="section stack-section" data-nav-label="Stack">
+    <div class="container">
+
+      <div class="section-eyebrow reveal-eyebrow">
+        <span class="eyebrow-num">04</span>
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Integration Ecosystem</span>
+      </div>
+
+      <h2 class="section-headline reveal">30+ integrations.<br><em>Zero middleware.</em></h2>
+      <p class="stack-sub reveal">Built native integrations across the full e-commerce stack — storefront to checkout, CRM to logistics. Every connector shipped from scratch with production reliability.</p>
+
+      <!-- 1. Storefront & Platforms -->
+      <div class="int-category reveal">
+        <div class="int-cat-header">
+          <span class="int-cat-icon">◫</span>
+          <h3 class="int-cat-title">Storefront &amp; E-Commerce Platforms</h3>
+          <span class="int-cat-count">7 integrations</span>
+        </div>
+        <div class="int-grid">
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/shopify/96BF48" alt="Shopify"></div><span class="int-name">Shopify</span><span class="int-desc">Orders, products, webhooks, metafields</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/woocommerce/96588A" alt="WooCommerce"></div><span class="int-name">WooCommerce</span><span class="int-desc">Product sync, order events, cart hooks</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/magento/EE672F" alt="Magento"></div><span class="int-name">Magento</span><span class="int-desc">Catalog, checkout, REST APIs</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/bigcommerce/121118" alt="BigCommerce"></div><span class="int-name">BigCommerce</span><span class="int-desc">Storefront API, webhooks</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/squarespace/ffffff" alt="Squarespace"></div><span class="int-name">Squarespace</span><span class="int-desc">Commerce API, inventory</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/wix/000000" alt="Wix"></div><span class="int-name">Wix</span><span class="int-desc">eCommerce module, product API</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#5B9BD5">OC</div><span class="int-name">OpenCart</span><span class="int-desc">Order management, catalog API</span></div>
+        </div>
+      </div>
+
+      <!-- 2. Marketplaces -->
+      <div class="int-category reveal">
+        <div class="int-cat-header">
+          <span class="int-cat-icon">◈</span>
+          <h3 class="int-cat-title">Marketplaces</h3>
+          <span class="int-cat-count">7 integrations</span>
+        </div>
+        <div class="int-grid">
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/amazon/FF9900" alt="Amazon"></div><span class="int-name">Amazon</span><span class="int-desc">SP-API, listings, FBA inventory</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/walmart/0071CE" alt="Walmart"></div><span class="int-name">Walmart</span><span class="int-desc">Marketplace API, item setup</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#0046BE">BB</div><span class="int-name">Best Buy</span><span class="int-desc">Seller partner, product feeds</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/ebay/E53238" alt="eBay"></div><span class="int-name">eBay</span><span class="int-desc">Trading API, order sync</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/etsy/F1641B" alt="Etsy"></div><span class="int-name">Etsy</span><span class="int-desc">Listings, receipts, shop API</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#F74040">FK</div><span class="int-name">Flipkart</span><span class="int-desc">Seller API, inventory sync</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#F16521">MM</div><span class="int-name">Meesho</span><span class="int-desc">Supplier API, order management</span></div>
+        </div>
+      </div>
+
+      <!-- 3. Payments -->
+      <div class="int-category reveal">
+        <div class="int-cat-header">
+          <span class="int-cat-icon">◉</span>
+          <h3 class="int-cat-title">Payments &amp; Finance</h3>
+          <span class="int-cat-count">7 integrations</span>
+        </div>
+        <div class="int-grid">
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/razorpay/02042B" alt="Razorpay"></div><span class="int-name">Razorpay</span><span class="int-desc">Checkout, subscriptions, UPI, EMI</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#E03B36">PU</div><span class="int-name">PayU</span><span class="int-desc">Payment gateway, refunds, webhooks</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#2DB34A">CF</div><span class="int-name">Cashfree</span><span class="int-desc">Payouts, settlements, VPA</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/stripe/635BFF" alt="Stripe"></div><span class="int-name">Stripe</span><span class="int-desc">Global payments, Connect, webhooks</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/paypal/003087" alt="PayPal"></div><span class="int-name">PayPal</span><span class="int-desc">Checkout, payouts, IPN</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#00B9F2">PT</div><span class="int-name">Paytm</span><span class="int-desc">Payment gateway, wallet, UPI</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/squareup/3E4348" alt="Square"></div><span class="int-name">Square</span><span class="int-desc">POS, checkout, inventory</span></div>
+        </div>
+      </div>
+
+      <!-- 4. Messaging & Conversational Commerce -->
+      <div class="int-category reveal">
+        <div class="int-cat-header">
+          <span class="int-cat-icon">◎</span>
+          <h3 class="int-cat-title">Messaging &amp; Conversational Commerce</h3>
+          <span class="int-cat-count">6 integrations</span>
+        </div>
+        <div class="int-grid">
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/meta/0082FB" alt="Meta"></div><span class="int-name">Meta</span><span class="int-desc">WhatsApp Cloud API, Business API</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp"></div><span class="int-name">WhatsApp</span><span class="int-desc">Commerce flows, catalog, payments</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/instagram/E1306C" alt="Instagram"></div><span class="int-name">Instagram</span><span class="int-desc">DM automation, shop, ads API</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#FF6B35">GS</div><span class="int-name">Gupshup</span><span class="int-desc">WhatsApp BSP, chatbot builder</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#1D3354">3D</div><span class="int-name">360dialog</span><span class="int-desc">WhatsApp partner, template mgmt</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#C8973A">RL</div><span class="int-name">RML</span><span class="int-desc">SMS & WhatsApp messaging infra</span></div>
+        </div>
+      </div>
+
+      <!-- 5. Ads & Acquisition -->
+      <div class="int-category reveal">
+        <div class="int-cat-header">
+          <span class="int-cat-icon">◐</span>
+          <h3 class="int-cat-title">Ads &amp; Acquisition</h3>
+          <span class="int-cat-count">5 integrations</span>
+        </div>
+        <div class="int-grid">
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/meta/0082FB" alt="Meta Ads"></div><span class="int-name">Meta Ads</span><span class="int-desc">CAPI, pixel, custom audiences</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/reddit/FF4500" alt="Reddit Ads"></div><span class="int-name">Reddit Ads</span><span class="int-desc">Conversions API, retargeting</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/googleads/4285F4" alt="Google Ads"></div><span class="int-name">Google Ads</span><span class="int-desc">Shopping feed, conversion tracking</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/pinterest/E60023" alt="Pinterest Ads"></div><span class="int-name">Pinterest Ads</span><span class="int-desc">Catalog, product pins, API</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/tiktok/010101" alt="TikTok Ads"></div><span class="int-name">TikTok Ads</span><span class="int-desc">Events API, product catalog</span></div>
+        </div>
+      </div>
+
+      <!-- 6. CRM & Marketing -->
+      <div class="int-category reveal">
+        <div class="int-cat-header">
+          <span class="int-cat-icon">◑</span>
+          <h3 class="int-cat-title">CRM &amp; Marketing Automation</h3>
+          <span class="int-cat-count">5 integrations</span>
+        </div>
+        <div class="int-grid">
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/salesforce/00A1E0" alt="Salesforce"></div><span class="int-name">Salesforce</span><span class="int-desc">CRM sync, workflows, lead scoring</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/hubspot/FF7A59" alt="HubSpot"></div><span class="int-name">HubSpot</span><span class="int-desc">Contacts, deals, email sequences</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/klaviyo/000000" alt="Klaviyo"></div><span class="int-name">Klaviyo</span><span class="int-desc">Email flows, segmentation, events</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/mailchimp/FFE01B" alt="Mailchimp"></div><span class="int-name">Mailchimp</span><span class="int-desc">Audience sync, automation triggers</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#E42527">ZH</div><span class="int-name">Zoho CRM</span><span class="int-desc">Lead capture, pipeline, reports</span></div>
+        </div>
+      </div>
+
+      <!-- 7. Analytics & Data -->
+      <div class="int-category reveal">
+        <div class="int-cat-header">
+          <span class="int-cat-icon">◮</span>
+          <h3 class="int-cat-title">Analytics &amp; Data</h3>
+          <span class="int-cat-count">5 integrations</span>
+        </div>
+        <div class="int-grid">
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/mixpanel/7856FF" alt="Mixpanel"></div><span class="int-name">Mixpanel</span><span class="int-desc">Event tracking, funnels, cohorts</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#1A73E8">AM</div><span class="int-name">Amplitude</span><span class="int-desc">Product analytics, retention</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/segment/52BD94" alt="Segment"></div><span class="int-name">Segment</span><span class="int-desc">CDP, data routing, identity</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap"><img class="int-logo" src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Google Analytics"></div><span class="int-name">GA4</span><span class="int-desc">Ecommerce events, audiences</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#3D7EAA">MB</div><span class="int-name">Metabase</span><span class="int-desc">SQL dashboards, business intel</span></div>
+        </div>
+      </div>
+
+      <!-- 8. Logistics & Fulfillment -->
+      <div class="int-category reveal">
+        <div class="int-cat-header">
+          <span class="int-cat-icon">◧</span>
+          <h3 class="int-cat-title">Logistics &amp; Fulfillment</h3>
+          <span class="int-cat-count">4 integrations</span>
+        </div>
+        <div class="int-grid">
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#E8472E">SR</div><span class="int-name">Shiprocket</span><span class="int-desc">Multi-carrier shipping, tracking</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#E8251C">DL</div><span class="int-name">Delhivery</span><span class="int-desc">Order dispatch, NDR management</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#4D148C">FX</div><span class="int-name">FedEx</span><span class="int-desc">International shipping, label gen</span></div>
+          <div class="int-card glass-card"><div class="int-logo-wrap int-text-badge" style="background:#00529B">AS</div><span class="int-name">AfterShip</span><span class="int-desc">Tracking notifications, returns</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ═══ PROJECTS ═══ -->
   <section id="projects" class="section projects-section" data-nav-label="Work">
     <div class="container">
 
       <div class="section-eyebrow reveal-eyebrow">
-        <span class="eyebrow-num">04</span>
+        <span class="eyebrow-num">05</span>
         <span class="eyebrow-line"></span>
         <span class="eyebrow-text">Side Projects</span>
       </div>
@@ -499,7 +652,7 @@
       <div class="contact-wrap">
 
         <div class="section-eyebrow reveal-eyebrow">
-          <span class="eyebrow-num">05</span>
+          <span class="eyebrow-num">06</span>
           <span class="eyebrow-line"></span>
           <span class="eyebrow-text">Let's Talk</span>
         </div>
@@ -575,6 +728,6 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

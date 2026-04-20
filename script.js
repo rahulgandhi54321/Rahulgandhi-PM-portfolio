@@ -1,4 +1,42 @@
 /* ═══════════════════════════════════════════
+   HERO NAME — TYPEWRITER
+═══════════════════════════════════════════ */
+(function () {
+  const line1El  = document.getElementById('heroLine1');
+  const line2El  = document.getElementById('heroLine2');
+  const cursorEl = document.getElementById('heroCursor');
+  if (!line1El) return;
+
+  const word1 = 'Rahul';
+  const word2 = 'Gandhi';
+  let i = 0;
+
+  function typeLine1() {
+    if (i < word1.length) {
+      line1El.textContent = word1.slice(0, ++i);
+      setTimeout(typeLine1, 95);
+    } else {
+      i = 0;
+      setTimeout(typeLine2, 380);
+    }
+  }
+
+  function typeLine2() {
+    if (i < word2.length) {
+      line2El.textContent = word2.slice(0, ++i);
+      setTimeout(typeLine2, 95);
+    } else {
+      setTimeout(() => {
+        cursorEl.style.transition = 'opacity 0.6s';
+        cursorEl.style.opacity = '0';
+      }, 1800);
+    }
+  }
+
+  setTimeout(typeLine1, 300);
+})();
+
+/* ═══════════════════════════════════════════
    SCROLL PROGRESS BAR
 ═══════════════════════════════════════════ */
 (function () {
