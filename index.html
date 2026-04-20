@@ -4,16 +4,16 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rahul Gandhi — AI Product Manager</title>
-  <meta name="description" content="AI Product Manager · $42M+ GMV · $1.8M ARR · 4 years building AI-powered platforms that move markets."/>
+  <meta name="description" content="AI Product Manager · E-Commerce · AgriTech · SaaS · AI · $42M+ GMV · $1.8M ARR"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-  <!-- ═══════════════════════════
-       TOP NAV — glassmorphism pill, scroll-aware
-  ═══════════════════════════ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ═══ TOP NAV ═══ -->
   <nav class="top-nav" id="topNav">
     <a href="#hero" class="nav-logo">RG</a>
     <div class="nav-section-indicator">
@@ -26,71 +26,53 @@
       <li><a href="#how"      data-label="How">How</a></li>
       <li><a href="#projects" data-label="Work">Work</a></li>
     </ul>
-    <a href="#contact" class="nav-hire">Hire Me →</a>
+    <a href="#contact" class="nav-hire">Let's Talk</a>
     <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
       <span></span><span></span>
     </button>
   </nav>
 
-  <!-- Mobile nav drawer -->
   <div class="mobile-nav" id="mobileNav">
     <a href="#why"      onclick="closeMobileNav()">Why</a>
     <a href="#what"     onclick="closeMobileNav()">What</a>
     <a href="#how"      onclick="closeMobileNav()">How</a>
     <a href="#projects" onclick="closeMobileNav()">Work</a>
-    <a href="#contact"  onclick="closeMobileNav()" class="mobile-hire">Hire Me →</a>
+    <a href="#contact"  onclick="closeMobileNav()" class="mobile-hire">Let's Talk →</a>
   </div>
 
-  <!-- ═══════════════════════════
-       HERO
-  ═══════════════════════════ -->
+  <!-- ═══ HERO ═══ -->
   <section id="hero" class="section hero-section" data-nav-label="Home">
     <canvas id="particles"></canvas>
     <div class="hero-glow-1"></div>
     <div class="hero-glow-2"></div>
+    <div class="hero-scanline"></div>
 
     <div class="hero-inner">
-      <div class="hero-badge">
-        <span class="badge-pulse"></span>
-        Open to AI PM Roles
+      <div class="hero-nameplate">
+        <span class="np-name">Rahul Gandhi</span>
+        <span class="np-sep"></span>
+        <span>AI Product Manager</span>
+        <span class="np-sep"></span>
+        <span>Bangalore, India</span>
       </div>
 
       <h1 class="hero-headline">
-        <span class="hl-row">I don't just</span>
-        <span class="hl-row hl-accent">build products.</span>
-        <span class="hl-row">I move markets.</span>
+        <span class="hl-row"><span class="hl-mask"><span>Product is craft.</span></span></span>
+        <span class="hl-row hl-accent"><span class="hl-mask"><span>AI is my material.</span></span></span>
+        <span class="hl-row"><span class="hl-mask"><span>I shape both.</span></span></span>
       </h1>
 
       <p class="hero-sub">
-        AI Product Manager with <strong>~4 years</strong> shipping platforms that generated
-        <span class="highlight">$42M+ GMV</span>,
-        <span class="highlight">$1.8M ARR</span>, and transformed how
-        <span class="highlight">520+ brands</span> sell conversationally.
+        Building at the intersection of customer obsession, data, and AI — across
+        <span class="inline-accent">E-Commerce</span>,
+        <span class="inline-accent">AgriTech</span>, and
+        <span class="inline-accent">SaaS</span>.
+        Not features. Outcomes.
       </p>
 
       <div class="hero-actions">
-        <a href="#what" class="btn-primary">See My Work →</a>
-        <a href="#contact" class="btn-ghost">Book a Call</a>
-      </div>
-    </div>
-
-    <!-- Floating stat cards -->
-    <div class="hero-stats">
-      <div class="stat-card">
-        <span class="stat-num">$42M+</span>
-        <span class="stat-lbl">GMV Driven</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">$1.8M</span>
-        <span class="stat-lbl">ARR Contributed</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">120%+</span>
-        <span class="stat-lbl">Net Revenue Retention</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">520+</span>
-        <span class="stat-lbl">D2C Brands Served</span>
+        <a href="#what" class="btn-primary">See the Work →</a>
+        <a href="#contact" class="btn-ghost">Start a Conversation</a>
       </div>
     </div>
 
@@ -100,27 +82,25 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════
-       WHY — Start with Why
-  ═══════════════════════════ -->
+  <!-- ═══ WHY ═══ -->
   <section id="why" class="section why-section" data-nav-label="Why">
     <div class="container">
 
-      <div class="section-eyebrow">
+      <div class="section-eyebrow reveal-eyebrow">
         <span class="eyebrow-num">01</span>
         <span class="eyebrow-line"></span>
-        <span class="eyebrow-text">Why I Build</span>
+        <span class="eyebrow-text">Start with Why</span>
       </div>
 
-      <h2 class="section-headline">Start with<br><em>Why.</em></h2>
+      <h2 class="section-headline reveal">Start with<br><em>Why.</em></h2>
 
-      <div class="why-manifesto glass-card">
+      <div class="why-manifesto glass-card reveal">
         <p class="manifesto-quote">
-          "People don't buy what you do —<br>they buy <strong>why</strong> you do it."
+          "People don't buy what you do —<br>they buy <em>why</em> you do it."
         </p>
         <p class="manifesto-attribution">— Simon Sinek · A principle I live by</p>
         <div class="manifesto-answer">
-          <p>My WHY: The gap between a brilliant idea and a successful product is one person — a PM who starts with the customer, owns the business outcome, and ships with precision. That's the role I was built for.</p>
+          <p>The gap between a brilliant idea and a successful product is one PM — someone who starts with the customer, owns the business outcome, and ships with precision. That's the role I was built for. Every decision I've made has been anchored in one question: does this move the metric that matters to the customer?</p>
         </div>
       </div>
 
@@ -128,66 +108,75 @@
         <div class="pillar glass-card reveal">
           <div class="pillar-icon">◎</div>
           <h3>Customer Obsession</h3>
-          <p>Every decision starts with jobs-to-be-done. Not engineering constraints or business targets — those serve the customer, not the other way around.</p>
+          <p>Every decision starts with jobs-to-be-done. Engineering constraints and business targets exist to serve the customer — not the other way around.</p>
         </div>
         <div class="pillar glass-card reveal">
           <div class="pillar-icon">◈</div>
           <h3>Outcomes Over Output</h3>
-          <p>Features are a means. The end is always a measurable change — in behaviour, retention, or revenue. I've contributed <span class="inline-accent">$42M+ GMV</span> by tracking the right metrics.</p>
+          <p>Features are a means. The end is always a measurable change — in behaviour, retention, or revenue. $42M+ GMV happened by tracking the right metrics.</p>
         </div>
         <div class="pillar glass-card reveal">
           <div class="pillar-icon">◉</div>
           <h3>AI-First Thinking</h3>
-          <p>AI isn't a feature I add. It's the lens through which I see every product problem — from LLM-powered analytics to ML-driven upsell models.</p>
+          <p>AI isn't a feature I add. It's the lens through which I see every product problem — from LLM-powered analytics to ML-driven propensity models.</p>
         </div>
         <div class="pillar glass-card reveal">
           <div class="pillar-icon">◐</div>
-          <h3>Simplicity Wins</h3>
-          <p>The best products do one thing brilliantly. Complexity kills adoption. Every feature I ship has earned its place by proving it moves the needle.</p>
+          <h3>First Principles</h3>
+          <p>Never assume. Never copy. Start from what is true, build from there. The best products ignored what came before and asked: what should this actually be?</p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ═══════════════════════════
-       WHAT — Experience + Impact
-  ═══════════════════════════ -->
+  <!-- ═══ WHAT — North Star Metrics + Experience ═══ -->
   <section id="what" class="section what-section" data-nav-label="What">
     <div class="container">
 
-      <div class="section-eyebrow">
+      <div class="section-eyebrow reveal-eyebrow">
         <span class="eyebrow-num">02</span>
         <span class="eyebrow-line"></span>
         <span class="eyebrow-text">What I've Shipped</span>
       </div>
 
-      <h2 class="section-headline">4 Years.<br>3 Companies.<br><em>Measurable Impact.</em></h2>
+      <h2 class="section-headline reveal">4 Years.<br>3 Companies.<br><em>Numbers that move.</em></h2>
 
-      <!-- Big numbers bar -->
-      <div class="impact-bar reveal">
-        <div class="impact-num">
-          <span class="in-val">$42M+</span>
-          <span class="in-lbl">GMV Driven</span>
+      <!-- North Star Metrics -->
+      <div class="ns-metrics reveal">
+        <div class="ns-item">
+          <span class="ns-num" data-count="42" data-prefix="$" data-suffix="M+">$0M+</span>
+          <span class="ns-label">GMV Driven</span>
+          <span class="ns-context">D2C brands selling via WhatsApp & Instagram commerce</span>
         </div>
-        <div class="impact-sep"></div>
-        <div class="impact-num">
-          <span class="in-val">$1.8M</span>
-          <span class="in-lbl">ARR Contributed</span>
+        <div class="ns-item">
+          <span class="ns-num" data-count="1.8" data-prefix="$" data-suffix="M">$0M</span>
+          <span class="ns-label">ARR Built</span>
+          <span class="ns-context">From 0→1 at Invictus data.ai as Founding PM</span>
         </div>
-        <div class="impact-sep"></div>
-        <div class="impact-num">
-          <span class="in-val">$10M</span>
-          <span class="in-lbl">Revenue Q2</span>
+        <div class="ns-item">
+          <span class="ns-num" data-count="120" data-suffix="%+">0%+</span>
+          <span class="ns-label">Net Revenue Retention</span>
+          <span class="ns-context">Industry benchmark is 100% — we exceeded it</span>
         </div>
-        <div class="impact-sep"></div>
-        <div class="impact-num">
-          <span class="in-val">$3.2M</span>
-          <span class="in-lbl">Annual Savings</span>
+        <div class="ns-item">
+          <span class="ns-num" data-count="20" data-prefix="~" data-suffix="M">~0M</span>
+          <span class="ns-label">Events / Day</span>
+          <span class="ns-context">Commerce data pipeline at Invictus.ai</span>
+        </div>
+        <div class="ns-item">
+          <span class="ns-num" data-count="520" data-suffix="+">0+</span>
+          <span class="ns-label">Brands Powered</span>
+          <span class="ns-context">D2C companies that grew because of decisions I made</span>
+        </div>
+        <div class="ns-item">
+          <span class="ns-num" data-count="10" data-prefix="$" data-suffix="M">$0M</span>
+          <span class="ns-label">Revenue — One Quarter</span>
+          <span class="ns-context">ML-driven upsell/cross-sell at UPL AgriTech, Q2</span>
         </div>
       </div>
 
-      <!-- Experience cards -->
+      <!-- Experience -->
       <div class="exp-stack">
 
         <div class="exp-card glass-card reveal">
@@ -209,10 +198,10 @@
             <span class="chip">30% Free→Paid Lift</span>
           </div>
           <ul class="exp-bullets">
-            <li>Founding PM owning <strong>0→1→scale</strong> strategy for AI-powered commerce data platform processing ~15–20M events/day</li>
-            <li>Shipped LLM-powered conversational analytics — reduced time-to-answer by <strong>~45%</strong>, increased insight usage <strong>~3–4×</strong></li>
-            <li>Owned core platform systems (Schema Builder, Validator, Scheduler) — data accuracy to <strong>~99.9%</strong>, ingestion failures down <strong>~60%</strong></li>
-            <li>Monetization ownership: <strong>~$1.8M ARR</strong>, <strong>~30% free-to-paid lift</strong>, <strong>120%+</strong> net revenue retention</li>
+            <li>Founding PM owning <strong>0→1→scale</strong> for AI-powered commerce data platform processing ~15–20M events/day</li>
+            <li>Shipped LLM-powered conversational analytics — reduced time-to-answer <strong>~45%</strong>, increased insight usage <strong>~3–4×</strong></li>
+            <li>Owned Schema Builder, Validator, Scheduler — data accuracy to <strong>~99.9%</strong>, ingestion failures down <strong>~60%</strong></li>
+            <li>Monetization: <strong>~$1.8M ARR</strong>, <strong>~30% free-to-paid lift</strong>, <strong>120%+ NRR</strong></li>
           </ul>
         </div>
 
@@ -223,7 +212,7 @@
               <p class="exp-tagline">Global agribusiness · 130+ markets worldwide</p>
             </div>
             <div class="exp-right-meta">
-              <span class="exp-date">Jun 2025 — Sep 2026</span>
+              <span class="exp-date">Jun 2024 — Sep 2025</span>
               <span class="exp-badge">PM · Full-time</span>
             </div>
           </div>
@@ -235,9 +224,9 @@
             <span class="chip">~25K Retailers</span>
           </div>
           <ul class="exp-bullets">
-            <li>PM owner for UCC (upsell, cross-sell, churn) across India and Brazil — ML models contributing <strong>~$10M incremental revenue in Q2</strong></li>
+            <li>PM for upsell, cross-sell, churn across India and Brazil — ML propensity models contributing <strong>~$10M incremental revenue in Q2</strong></li>
             <li>Operationalized propensity scores and churn risk into Salesforce workflows for <strong>1,000+ users</strong> across multi-region teams</li>
-            <li>Improved upsell conversion <strong>~18%</strong>, cross-sell attach <strong>~22%</strong>, reduced churn <strong>~5–6% QoQ</strong></li>
+            <li>Improved upsell conversion <strong>~18%</strong>, cross-sell attach <strong>~22%</strong>, churn down <strong>~5–6% QoQ</strong></li>
             <li>Led Distributor 360 for <strong>~25K retailers</strong> — adoption +35%, repeat order rate +20%</li>
           </ul>
         </div>
@@ -249,7 +238,7 @@
               <p class="exp-tagline">AI omnichannel conversational commerce · 520+ D2C brands</p>
             </div>
             <div class="exp-right-meta">
-              <span class="exp-date">Jun 2022 — Jun 2025</span>
+              <span class="exp-date">Jun 2022 — Jun 2024</span>
               <span class="exp-badge">PM · Full-time</span>
             </div>
           </div>
@@ -264,7 +253,7 @@
             <li>PM for AI WhatsApp & Instagram commerce platform — <strong>$42M+ GMV</strong> across 520+ D2C brands</li>
             <li>Built AI bots for product discovery, order tracking, upsell, support — <strong>+30% conversion</strong></li>
             <li>Led retention workflows (cart recovery, repeat nudges) — <strong>$9.6M+</strong> incremental revenue</li>
-            <li>Optimized Meta Cloud API — <strong>$3.2M annual savings</strong>, -17% operational overhead</li>
+            <li>Optimized Meta Cloud API — <strong>$3.2M annual savings</strong>, −17% operational overhead</li>
           </ul>
         </div>
 
@@ -281,19 +270,17 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════
-       HOW — Skills & Methodology
-  ═══════════════════════════ -->
+  <!-- ═══ HOW — Playbook + Domain + AI Skills ═══ -->
   <section id="how" class="section how-section" data-nav-label="How">
     <div class="container">
 
-      <div class="section-eyebrow">
+      <div class="section-eyebrow reveal-eyebrow">
         <span class="eyebrow-num">03</span>
         <span class="eyebrow-line"></span>
-        <span class="eyebrow-text">How I Think</span>
+        <span class="eyebrow-text">How I Think & Build</span>
       </div>
 
-      <h2 class="section-headline">The PM<br><em>Playbook.</em></h2>
+      <h2 class="section-headline reveal">The PM<br><em>Playbook.</em></h2>
 
       <div class="framework-strip glass-card reveal">
         <div class="fw-step">
@@ -305,44 +292,89 @@
         <div class="fw-step">
           <span class="fw-num">02</span>
           <h4>Define the Outcome</h4>
-          <p>OKRs, north star metric, success criteria. Features serve outcomes, not vice versa.</p>
+          <p>North star metric, OKRs, success criteria. Features serve outcomes.</p>
         </div>
         <div class="fw-arrow">→</div>
         <div class="fw-step">
           <span class="fw-num">03</span>
-          <h4>Ship & Iterate</h4>
-          <p>Roadmap, agile execution, A/B testing, data-driven iteration. Repeat at velocity.</p>
+          <h4>Ship. Measure. Iterate.</h4>
+          <p>Agile execution, A/B tests, data-driven decisions. Fast feedback loops.</p>
         </div>
       </div>
 
-      <div class="skills-quad">
-        <div class="sq-card glass-card reveal">
-          <h4>Product Leadership</h4>
-          <div class="tag-cloud">
-            <span>AI/ML Product Management</span><span>0→1 Products</span>
-            <span>Roadmap Planning</span><span>OKRs</span><span>Agile/Scrum</span>
-            <span>Feature Prioritization</span><span>Product Strategy</span>
+      <!-- Domain Expertise -->
+      <div class="domain-block reveal">
+        <div class="domain-header">
+          <span class="eyebrow-num">Domain</span>
+          <span class="eyebrow-line-short"></span>
+          <span class="eyebrow-text">Where I've built</span>
+        </div>
+        <div class="domain-grid">
+          <div class="domain-tile glass-card">
+            <span class="dt-label">E-Commerce</span>
+            <span class="dt-detail">D2C · WhatsApp Commerce · Instagram · Omnichannel · Conversational AI</span>
+            <span class="dt-num">$42M+ GMV</span>
+          </div>
+          <div class="domain-tile glass-card">
+            <span class="dt-label">AgriTech</span>
+            <span class="dt-detail">Supply Chain ML · Upsell Propensity · Distributor Analytics · 130+ Markets</span>
+            <span class="dt-num">$10M / Quarter</span>
+          </div>
+          <div class="domain-tile glass-card">
+            <span class="dt-label">SaaS</span>
+            <span class="dt-detail">B2B · Freemium → Paid · Monetization Architecture · Commerce Data</span>
+            <span class="dt-num">$1.8M ARR</span>
+          </div>
+          <div class="domain-tile glass-card">
+            <span class="dt-label">AI / ML</span>
+            <span class="dt-detail">LLMs · Conversational AI · Analytics AI · Propensity Models · RAG</span>
+            <span class="dt-num">3 Products Shipped</span>
           </div>
         </div>
-        <div class="sq-card glass-card reveal">
-          <h4>Growth & Monetization</h4>
+      </div>
+
+      <!-- Skills -->
+      <div class="skills-block">
+        <div class="skills-section reveal">
+          <h4 class="skills-cat-label">AI &amp; Language Models</h4>
           <div class="tag-cloud">
-            <span>A/B Testing</span><span>Monetization</span><span>Retention</span>
-            <span>Go-to-Market</span><span>Sprint Planning</span><span>Backlog Management</span><span>User Stories</span>
+            <span>GPT-4o</span><span>Claude 3.5</span><span>Gemini Pro</span>
+            <span>LangChain</span><span>LlamaIndex</span><span>RAG Architectures</span>
+            <span>Vector Databases</span><span>Pinecone</span><span>Weaviate</span>
+            <span>Fine-tuning</span><span>RLHF</span><span>Prompt Engineering</span>
+            <span>Embeddings</span><span>Semantic Search</span><span>OpenAI API</span>
+            <span>Anthropic API</span><span>Hugging Face</span><span>Whisper</span>
+            <span>Stable Diffusion</span><span>Multimodal AI</span>
           </div>
         </div>
-        <div class="sq-card glass-card reveal">
-          <h4>Analytics & Data</h4>
+
+        <div class="skills-section reveal">
+          <h4 class="skills-cat-label">Data Science &amp; Analytics</h4>
           <div class="tag-cloud">
-            <span>SQL</span><span>Mixpanel</span><span>Google Analytics</span>
-            <span>Product Metrics</span><span>Postman</span><span>API Documentation</span>
+            <span>Python</span><span>pandas</span><span>NumPy</span>
+            <span>Scikit-learn</span><span>SQL (Advanced)</span>
+            <span>Mixpanel</span><span>Amplitude</span><span>Segment</span>
+            <span>A/B Testing</span><span>Cohort Analysis</span>
+            <span>Funnel Analysis</span><span>Propensity Modelling</span>
+            <span>Churn Prediction</span><span>Feature Engineering</span>
+            <span>Statistical Analysis</span><span>Metabase</span>
+            <span>Google Analytics</span><span>KPI Trees</span>
+            <span>North Star Metrics</span>
           </div>
         </div>
-        <div class="sq-card glass-card reveal">
-          <h4>Design & Collaboration</h4>
+
+        <div class="skills-section reveal">
+          <h4 class="skills-cat-label">Product &amp; Strategy</h4>
           <div class="tag-cloud">
-            <span>Figma</span><span>JIRA</span><span>Confluence</span>
-            <span>Notion</span><span>Trello</span><span>User Research</span>
+            <span>0→1 Products</span><span>Product Strategy</span>
+            <span>Roadmap Planning</span><span>OKRs</span>
+            <span>Jobs-to-be-Done</span><span>User Research</span>
+            <span>Go-to-Market</span><span>Monetization Design</span>
+            <span>Agile / Scrum</span><span>Sprint Planning</span>
+            <span>Backlog Management</span><span>Feature Prioritization</span>
+            <span>PRDs</span><span>Figma</span><span>JIRA</span>
+            <span>Notion</span><span>Miro</span><span>Linear</span>
+            <span>Postman</span><span>API Documentation</span>
           </div>
         </div>
       </div>
@@ -350,38 +382,38 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════
-       PROJECTS
-  ═══════════════════════════ -->
+  <!-- ═══ PROJECTS ═══ -->
   <section id="projects" class="section projects-section" data-nav-label="Work">
     <div class="container">
 
-      <div class="section-eyebrow">
+      <div class="section-eyebrow reveal-eyebrow">
         <span class="eyebrow-num">04</span>
         <span class="eyebrow-line"></span>
-        <span class="eyebrow-text">Built from Scratch</span>
+        <span class="eyebrow-text">Side Projects</span>
       </div>
 
-      <h2 class="section-headline">Products I<br><em>Actually Shipped.</em></h2>
+      <h2 class="section-headline reveal">Built because<br>the problem<br><em>nagged at me.</em></h2>
+
+      <p class="projects-sub reveal">These aren't portfolio pieces. They're running code — built on weekends, out of obsession, because the problem existed and no one had solved it properly.</p>
 
       <div class="project-card glass-card reveal">
         <div class="pc-left">
           <div class="pc-top">
             <span class="pc-tag">AI · iOS · Python Backend</span>
-            <span class="pc-status"><span class="status-pulse"></span>Active</span>
+            <span class="pc-status"><span class="status-pulse"></span>Live</span>
           </div>
           <h3 class="pc-title">Job Hunter AI</h3>
-          <p class="pc-tagline">Automating the most broken experience in tech.</p>
-          <p class="pc-desc">Job hunting is broken. Candidates spend <strong>80% of their time on admin</strong> — tailoring resumes, tracking applications, cold outreach — and only 20% on what matters. I built an AI-first full-stack platform that understands your profile, scores role fit, and generates personalised outreach in seconds.</p>
+          <p class="pc-tagline">Because job hunting is embarrassingly broken.</p>
+          <p class="pc-desc">Candidates burn <strong>80% of their time on admin</strong> — resume tailoring, cold outreach, tracking applications — and only 20% on what actually matters. I built a full-stack AI platform: iOS app + Python backend. It understands your profile, scores role fit, and writes personalised outreach in seconds.</p>
 
           <div class="pc-stats-row">
-            <div class="pc-stat"><span class="pcs-val">10x</span><span class="pcs-lbl">Faster</span></div>
+            <div class="pc-stat"><span class="pcs-val">10×</span><span class="pcs-lbl">Faster</span></div>
             <div class="pc-stat"><span class="pcs-val">AI</span><span class="pcs-lbl">Role Matching</span></div>
             <div class="pc-stat"><span class="pcs-val">0→1</span><span class="pcs-lbl">Solo Built</span></div>
           </div>
 
           <div class="pc-stack">
-            <span>Swift</span><span>Python</span><span>AI/ML</span><span>iOS</span><span>REST API</span>
+            <span>Swift</span><span>Python</span><span>GPT-4o</span><span>iOS</span><span>REST API</span>
           </div>
 
           <div class="pc-actions">
@@ -398,103 +430,101 @@
               <span class="term-title">job-hunter-ai.py</span>
             </div>
             <div class="term-body">
-              <p><span class="tk"># Problem Space</span></p>
-              <p><span class="tv">admin_time</span> = <span class="tn">80</span>% <span class="tc"># too high</span></p>
-              <p><span class="tv">match_quality</span> = <span class="tn">None</span> <span class="tc"># broken</span></p>
+              <p><span class="tk"># Problem</span></p>
+              <p><span class="tv">admin_time</span> = <span class="tn">80</span>% <span class="tc"># brutal</span></p>
+              <p><span class="tv">match_quality</span> = <span class="ts">"broken"</span></p>
               <p>&nbsp;</p>
-              <p><span class="tk"># Solution</span></p>
-              <p><span class="tv">ai_matching</span> = <span class="ts">JobHunterAI(</span></p>
-              <p>&nbsp;&nbsp;<span class="tv">model</span>=<span class="ts">"gpt-4"</span>,</p>
-              <p>&nbsp;&nbsp;<span class="tv">profile</span>=user.resume,</p>
+              <p><span class="tk"># What I built</span></p>
+              <p><span class="tv">app</span> = <span class="ts">JobHunterAI(</span></p>
+              <p>&nbsp;&nbsp;<span class="tv">model</span>=<span class="ts">"gpt-4o"</span>,</p>
+              <p>&nbsp;&nbsp;<span class="tv">platform</span>=<span class="ts">"iOS + Python"</span>,</p>
               <p>&nbsp;&nbsp;<span class="tv">speed</span>=<span class="tn">10</span>x</p>
               <p><span class="ts">)</span></p>
               <p>&nbsp;</p>
               <p><span class="tk"># Status</span></p>
-              <p><span class="tv">status</span> = <span class="tg">● Active</span></p>
+              <p><span class="tv">status</span> = <span class="tg">● Live</span></p>
+              <p><span class="tv">builder</span> = <span class="ts">"solo"</span><span class="tc"> # no shortcuts</span></p>
+              <p><span class="term-cursor">▋</span></p>
             </div>
           </div>
         </div>
       </div>
 
-      <p class="more-coming">More projects shipping soon — building in public on <a href="https://github.com/rahulgandhi54321" target="_blank">GitHub ↗</a></p>
-
     </div>
   </section>
 
-  <!-- ═══════════════════════════
-       CONTACT
-  ═══════════════════════════ -->
+  <!-- ═══ CONTACT ═══ -->
   <section id="contact" class="section contact-section" data-nav-label="Contact">
     <div class="container">
       <div class="contact-wrap">
 
-        <div class="section-eyebrow">
+        <div class="section-eyebrow reveal-eyebrow">
           <span class="eyebrow-num">05</span>
           <span class="eyebrow-line"></span>
           <span class="eyebrow-text">Let's Talk</span>
         </div>
 
-        <h2 class="section-headline contact-headline">Let's build<br>something <em>great.</em></h2>
+        <h2 class="section-headline contact-headline reveal">Working on<br>something<br><em>ambitious?</em></h2>
 
-        <p class="contact-sub">Open to AI PM roles, advisory, and product collaborations. If you're building something that matters — I want in.</p>
+        <p class="contact-sub reveal">If you're building in AI, E-Commerce, or AgriTech — and you need a PM who thinks in outcomes, speaks both customer and code, and ships with conviction — I'd like to hear about what you're working on.</p>
 
-        <a href="https://calendly.com/rahulgandhi54321" target="_blank" class="book-call glass-card">
+        <p class="contact-statement reveal">Not looking for just another role.<br>Looking for the right problem to solve next.</p>
+
+        <a href="https://calendly.com/rahulgandhi54321" target="_blank" class="book-call glass-card reveal">
           <span class="bc-icon">📅</span>
           <div class="bc-body">
-            <span class="bc-title">Book a Call</span>
-            <span class="bc-sub">30 min · Free · Calendly</span>
+            <span class="bc-title">Start the Conversation</span>
+            <span class="bc-sub">30 min · No agenda needed · Calendly</span>
           </div>
           <span class="bc-arr">→</span>
         </a>
 
-        <div class="contact-socials">
+        <div class="contact-socials reveal">
           <a href="mailto:rahulgandhi54321@gmail.com" class="social-link">rahulgandhi54321@gmail.com</a>
           <a href="https://linkedin.com/in/rahul-gandhi-72b9181a7" target="_blank" class="social-link">LinkedIn ↗</a>
           <a href="https://github.com/rahulgandhi54321" target="_blank" class="social-link">GitHub ↗</a>
         </div>
 
-        <div class="avail glass-card">
+        <div class="avail glass-card reveal">
           <span class="avail-dot"></span>
-          Available for new opportunities
+          Currently: Founding PM at Invictus data.ai · Open to advisory &amp; collabs
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════
-       CASE STUDY MODAL
-  ═══════════════════════════ -->
+  <!-- ═══ MODAL ═══ -->
   <div class="modal-overlay" id="modal" onclick="handleModalClick(event)">
     <div class="modal-box glass-card">
       <button class="modal-close" onclick="closeModal()">✕</button>
 
       <span class="modal-tag">Case Study · AI Product · 0→1</span>
       <h2 class="modal-title">Job Hunter AI</h2>
-      <p class="modal-tagline">Automating the most broken experience in tech — job hunting.</p>
+      <p class="modal-tagline">Built because job hunting is embarrassingly broken.</p>
 
       <div class="modal-grid">
         <div class="mg-card glass-card">
           <h4>The Problem</h4>
-          <p>Candidates spend 80% of time on repetitive admin — tailoring resumes, cold outreach, tracking applications. Zero intelligence matching them to the right roles. The emotional and time cost compounds every day.</p>
+          <p>Candidates spend 80% of time on repetitive admin — resume tailoring, cold outreach, tracking. Signal-to-noise is catastrophic. The emotional and time cost compounds daily.</p>
         </div>
         <div class="mg-card glass-card">
           <h4>The Solution</h4>
-          <p>Full-stack AI platform: iOS app + Python backend. AI understands your profile, scans job boards, scores role fit, generates tailored outreach in seconds — not hours.</p>
+          <p>Full-stack AI: iOS app + Python backend. Understands your profile, scans job boards, scores role fit, generates tailored outreach in seconds — not hours.</p>
         </div>
         <div class="mg-card glass-card">
-          <h4>PM Role</h4>
-          <p>Sole PM & builder, 0→1. Defined the problem space, designed iOS onboarding (Google Sign-In + profile), architected backend, shipped both repos to production. No team. No shortcuts.</p>
+          <h4>PM Execution</h4>
+          <p>Sole PM & builder, 0→1. Defined problem space, designed iOS onboarding, architected Python backend, shipped both repos to production. No team. No shortcuts.</p>
         </div>
         <div class="mg-card glass-card">
-          <h4>PM Lens</h4>
-          <p>Freemium model (same playbook → 30% free-to-paid lift at Invictus). Mobile-first (opportunities found on the go). Backend-first AI so core intelligence was solid before UI polish.</p>
+          <h4>PM Thinking</h4>
+          <p>Freemium model (same playbook → 30% free-to-paid lift at Invictus). Mobile-first UX. Backend-first AI — core intelligence solid before UI polish.</p>
         </div>
       </div>
 
       <div class="modal-impact">
-        <div class="mi-card glass-card"><span class="mi-val">10x</span><span class="mi-lbl">Faster applications</span></div>
-        <div class="mi-card glass-card"><span class="mi-val">AI</span><span class="mi-lbl">Personalised matching</span></div>
+        <div class="mi-card glass-card"><span class="mi-val">10×</span><span class="mi-lbl">Faster applications</span></div>
+        <div class="mi-card glass-card"><span class="mi-val">AI</span><span class="mi-lbl">Role matching</span></div>
         <div class="mi-card glass-card"><span class="mi-val">0→1</span><span class="mi-lbl">Solo PM + Builder</span></div>
       </div>
 
