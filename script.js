@@ -1,11 +1,12 @@
 /* ═══════════════════════════════════════════
-   HERO NAME — TYPEWRITER
+   HERO NAME — TYPEWRITER (subtle cursor)
 ═══════════════════════════════════════════ */
 (function () {
   const line1El  = document.getElementById('heroLine1');
   const line2El  = document.getElementById('heroLine2');
-  const cursorEl = document.getElementById('heroCursor');
-  if (!line1El) return;
+  const c1       = document.getElementById('cursor1');
+  const c2       = document.getElementById('cursor2');
+  if (!line1El || !line2El) return;
 
   const word1 = 'Rahul';
   const word2 = 'Gandhi';
@@ -16,8 +17,11 @@
       line1El.textContent = word1.slice(0, ++i);
       setTimeout(typeLine1, 95);
     } else {
+      // hand cursor off to line 2
+      c1.classList.remove('typing');
+      c2.classList.add('typing');
       i = 0;
-      setTimeout(typeLine2, 380);
+      setTimeout(typeLine2, 360);
     }
   }
 
@@ -26,14 +30,98 @@
       line2El.textContent = word2.slice(0, ++i);
       setTimeout(typeLine2, 95);
     } else {
+      // settle: cursor stays at low opacity (no blink)
       setTimeout(() => {
-        cursorEl.style.transition = 'opacity 0.6s';
-        cursorEl.style.opacity = '0';
-      }, 1800);
+        c2.classList.remove('typing');
+        c2.classList.add('done');
+      }, 600);
     }
   }
 
-  setTimeout(typeLine1, 300);
+  // start
+  c1.classList.add('typing');
+  setTimeout(typeLine1, 280);
+})();
+
+/* ═══════════════════════════════════════════
+   HERO — PARALLAX TILT ON NAME
+═══════════════════════════════════════════ */
+(function () {
+  if (window.matchMedia('(hover: none)').matches) return;
+  const hero     = document.getElementById('hero');
+  const heroName = document.getElementById('heroName');
+  if (!hero || !heroName) return;
+
+  let raf = null;
+  hero.addEventListener('mousemove', (e) => {
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      const r  = hero.getBoundingClientRect();
+      const rx = ((e.clientY - r.top)  / r.height - 0.5) * -5;
+      const ry = ((e.clientX - r.left) / r.width  - 0.5) *  5;
+      heroName.style.transform = `perspective(1400px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+  });
+  hero.addEventListener('mouseleave', () => {
+    heroName.style.transform = `perspective(1400px) rotateX(0deg) rotateY(0deg)`;
+  });
+})();
+
+/* ═══════════════════════════════════════════
+   HERO CHIPS — MAGNETIC + CLICK BOUNCE
+═══════════════════════════════════════════ */
+(function () {
+  const hero  = document.getElementById('hero');
+  const chips = document.querySelectorAll('.hero-chip');
+  if (!hero || !chips.length) return;
+
+  const isTouch = window.matchMedia('(hover: none)').matches;
+
+  // Magnetic pull when cursor is within range
+  if (!isTouch) {
+    let raf = null;
+    hero.addEventListener('mousemove', (e) => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        chips.forEach((chip) => {
+          const r  = chip.getBoundingClientRect();
+          const cx = r.left + r.width  / 2;
+          const cy = r.top  + r.height / 2;
+          const dx = e.clientX - cx;
+          const dy = e.clientY - cy;
+          const d  = Math.hypot(dx, dy);
+          const RANGE = 220;
+          if (d < RANGE) {
+            const f = (RANGE - d) / RANGE;     // 0 → 1
+            const px = (dx / d) * f * 14;
+            const py = (dy / d) * f * 14;
+            chip.style.setProperty('--magnet-x', `${px}px`);
+            chip.style.setProperty('--magnet-y', `${py}px`);
+          } else {
+            chip.style.setProperty('--magnet-x', `0px`);
+            chip.style.setProperty('--magnet-y', `0px`);
+          }
+        });
+      });
+    });
+    hero.addEventListener('mouseleave', () => {
+      chips.forEach((chip) => {
+        chip.style.setProperty('--magnet-x', `0px`);
+        chip.style.setProperty('--magnet-y', `0px`);
+      });
+    });
+  }
+
+  // Click bounce — independent `scale` so it doesn't fight the floatA/B/C/D transforms
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chip.classList.remove('bumped');
+      // force reflow so the animation restarts on rapid clicks
+      void chip.offsetWidth;
+      chip.classList.add('bumped');
+      setTimeout(() => chip.classList.remove('bumped'), 600);
+    });
+  });
 })();
 
 /* ═══════════════════════════════════════════
